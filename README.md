@@ -74,7 +74,7 @@ $$
 Numa região sem efeitos de produção, não há mudança de refletividade, logo $\Delta R = 0$. Isso implica em $A^{\textrm{(4D)}} = \mathcal{N}(0,\sigma\sqrt{2})$. Assim,
 
 $$
-\textrm{NRMS} = 200 \times \dfrac{\textrm{RMS }(\mathcal{N}(0,\sigma\sqrt{2})}{\textrm{RMS }[\mathcal{N}(R^{(B)},\sigma)] + \textrm{RMS }[\mathcal{N}(R^{(M)},\sigma)]}
+\textrm{NRMS} = 200 \times \dfrac{\textrm{RMS }(\mathcal{N}(0,\sigma\sqrt{2}))}{\textrm{RMS }[\mathcal{N}(R^{(B)},\sigma)] + \textrm{RMS }[\mathcal{N}(R^{(M)},\sigma)]}
 $$
 
 Usando [a propriedade do cálculo do RMS para dstribuições normais](https://en.wikipedia.org/wiki/Root_mean_square#Relationship_to_other_statistics),
@@ -119,10 +119,10 @@ $$
 \Delta R = R^{(M)} - R^{(B)} = \dfrac{\textrm{IP}^{(M)}_2 - \textrm{IP}^{(M)}_1}{\textrm{IP}^{(M)}_2 + \textrm{IP}^{(M)}_1} - \dfrac{\textrm{IP}^{(B)}_2 - \textrm{IP}^{(B)}_1}{\textrm{IP}^{(B)}_2 + \textrm{IP}^{(B)}_1}
 $$ 
  
-Assumindo que não há mudanças na camada de topo, $\textrm{IP}^{(M)}_1 = \textrm{IP}^{(B)}_1 $. Além disso, se $ \textrm{IP}^{(B)}_2 + \textrm{IP}^{(B)}_1 \approx \textrm{IP}^{(M)}_2 + \textrm{IP}^{(M)}_1 \gg \textrm{IP}^{(B,M)}_2 - \textrm{IP}^{(B,M)}_1 $, ficamos com
+Assumindo $ \textrm{IP}^{(B)}_2 + \textrm{IP}^{(B)}_1 \approx \textrm{IP}^{(M)}_2 + \textrm{IP}^{(M)}_1 \gg \textrm{IP}^{(B,M)}_2 - \textrm{IP}^{(B,M)}_1 $, ficamos com
 
 $$
-\Delta R \approx \dfrac{1}{\textrm{IP}^{(B)}_2 + \textrm{IP}^{(B)}_1}\left[ \textrm{IP}^{(M)}_2 - \textrm{IP}^{(M)}_1 - \textrm{IP}^{(B)}_2 + \textrm{IP}^{(B)}_1\right] = \dfrac{\textrm{IP}^{(M)}_2 - \textrm{IP}^{(B)}_2}{\textrm{IP}^{(B)}_2 + \textrm{IP}^{(B)}_1} = R\dfrac{\Delta\textrm{IP}^{(Produção)}}{\Delta\textrm{IP}^{(Original)}}
+\Delta R \approx \dfrac{1}{\textrm{IP}^{(B)}_2 + \textrm{IP}^{(B)}_1}\left[ \textrm{IP}^{(M)}_2 - \textrm{IP}^{(M)}_1 - \textrm{IP}^{(B)}_2 + \textrm{IP}^{(B)}_1\right] = \dfrac{(\textrm{IP}^{(M)}_2 - \textrm{IP}^{(B)}_2) - (\textrm{IP}^{(M)}_1 - \textrm{IP}^{(B)}_1)}{\textrm{IP}^{(B)}_2 + \textrm{IP}^{(B)}_1} = R\dfrac{\Delta\textrm{IP}^{(Produção)}_2 - \Delta\textrm{IP}^{(Produção)}_1}{\Delta\textrm{IP}^{(Original)}}
 $$
 
 Agora, conseguimos estabelecer uma relação entre mudaça de amplitude (u refletividade) e mudança esperada de IP na zona de produção. Reparar que essa diferença é depende do contraste inicial de impedância, levantando um ponto que também é intuitivo: uma mudança de 3% de impedância acústica pode levar a resultados diferentes, a depender do contraste inicial entre as camadas.
@@ -130,7 +130,7 @@ Agora, conseguimos estabelecer uma relação entre mudaça de amplitude (u refle
 Por fim, vem a pergunta: ao modelarmos uma certa variação de impedância causada por 4D, e assumirmos um determinado nível de NRMS, qual a chance de esse sinal ser detectado em campo? Para isso, calculamos o Z-score do sinal modelado:
 
 $$
-Z = \dfrac{\hat{A} - \mu_A}{\sigma_A} = \dfrac{\Delta R}{\sigma\sqrt{2}} = R\dfrac{\Delta\textrm{IP}^{(Produção)}}{\Delta\textrm{IP}^{(Original)}} \times \dfrac{100}{\textrm{NRMS}|R|} = \dfrac{\Delta\textrm{IP}^{(Produção)}}{\Delta\textrm{IP}^{(Original)}} \times \dfrac{100}{\textrm{NRMS}}
+Z = \dfrac{\hat{A} - \mu_A}{\sigma_A} = \dfrac{\Delta R}{\sigma\sqrt{2}} = R\dfrac{\Delta\textrm{IP}^{(Produção)}_2 - \Delta\textrm{IP}^{(Produção)}_1}{\Delta\textrm{IP}^{(Original)}} \times \dfrac{100}{\textrm{NRMS}|R|} = \dfrac{\Delta\textrm{IP}^{(Produção)}_2 - \Delta\textrm{IP}^{(Produção)}_1}{\Delta\textrm{IP}^{(Original)}} \times \dfrac{100}{\textrm{NRMS}}
 $$
  
 A ultima expressão (na qual assumimos $R$ positivo, mas sem perda de generalidade) pode ser interpretada como uma probabilidade de aquela anomalia ser real, e não apenas ruído estatístico: um Z-score de 3, por exemplo, indicaria 97.5 % de chance de a anomalia ser de fato um sinal 4D, e não apenas flutuação estatística.
